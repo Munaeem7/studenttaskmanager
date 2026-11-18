@@ -38,12 +38,15 @@ def handle_complete(manager):
 
 
 def handle_delete(manager):
-    task_id = int(input("Task ID to delete: "))
-    if manager.delete_task(task_id):
-        print("Task deleted.")
-    else:
-        print("Task not found.")
-
+    raw = input("Task ID to delete: ").strip()
+    if not raw.isdigit():
+        print("Error: ID must be a positive number.")
+        return
+    try:
+        manager.delete_task(int(raw))
+        print(f"Task {raw} deleted.")
+    except ValueError as error:
+        print(f"Error: {error}")
 
 def main():
     manager = TaskManager("tasks.json")
