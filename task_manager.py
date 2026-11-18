@@ -27,6 +27,8 @@ class TaskManager:
     def complete_task(self, task_id):
         for task in self.tasks:
             if task["id"] == task_id:
+                if task["completed"]:
+                    raise ValueError(f"Task {task_id} is already completed.")
                 task["completed"] = True
                 self._save()
                 return task

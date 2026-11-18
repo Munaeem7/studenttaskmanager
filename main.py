@@ -30,11 +30,18 @@ def handle_show(manager):
 
 
 def handle_complete(manager):
-    task_id = int(input("Task ID to complete: "))
-    if manager.complete_task(task_id):
-        print("Task marked as completed.")
-    else:
-        print("Task not found.")
+    raw = input("Task ID(s) to complete (e.g. 1 or 1,3): ")
+    for part in raw.split(","):
+        part = part.strip()
+        if not part.isdigit():
+            print(f"Skipped '{part}': not a valid ID.")
+            continue
+        try:
+            task = manager.complete_task(int(part))
+        except ValueError as error:
+            print(f"Error: {error}")
+            continue
+        print(f"Task {part} completed." if task else f"Task {part} not found.")
 
 
 def handle_delete(manager):
