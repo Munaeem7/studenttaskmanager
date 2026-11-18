@@ -40,7 +40,7 @@ class TaskManager:
                 self.tasks.remove(task)
                 self._save()
                 return True
-        return False
+        raise ValueError(f"No task found with ID {task_id}.")
 
     def _load(self):
         if self.storage_file and self.storage_file.exists():
