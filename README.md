@@ -2,7 +2,7 @@
 
 A small Python console application to manage student tasks. Built as a Git and GitHub workflow assignment.
 
-Project status: In Progress
+Project status: Testing
 
 ## Features
 
