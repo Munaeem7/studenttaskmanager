@@ -40,6 +40,21 @@ Choose an option from the menu:
 | 4 | Delete a task by ID |
 | 5 | Exit |
 
+
+## Running tests
+
+Run all unit tests from the project root:
+
+```
+python -m unittest discover -s tests -v
+```
+
+Tests also run automatically on GitHub Actions for every push to `main` and every pull request to `main`.
+
+## Documentation
+
+See [docs/userguide.md](docs/userguide.md) for the full user guide.
+
 ## License
 
 This project is licensed under the MIT License.
