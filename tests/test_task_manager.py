@@ -13,7 +13,7 @@ class TestTaskManager(unittest.TestCase):
     def test_complete_task(self):
         task = self.manager.add_task("Finish lab")
         self.manager.complete_task(task["id"])
-        self.assertFalse(self.manager.list_tasks()[0]["completed"])
+        self.assertTrue(self.manager.list_tasks()[0]["completed"])
     def test_delete_task(self):
         task = self.manager.add_task("Old task")
         self.manager.delete_task(task["id"])
